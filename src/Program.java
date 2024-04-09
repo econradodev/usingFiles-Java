@@ -10,11 +10,12 @@ public class Program {
             String line = br.readLine();
             while (line != null){
                 String[] text = line.split(",");
+                String name = text[0];
                 float price = Float.parseFloat(text[1]);
                 int quantity = Integer.parseInt(text[2]);
 
                 try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathOut, true))){
-                    bw.write(text[0] + "," + price * quantity);
+                    bw.write(name + "," + price * quantity);
                     bw.newLine();
                 } catch (IOException e){
                     e.printStackTrace();
